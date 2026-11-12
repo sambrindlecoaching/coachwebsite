@@ -1,0 +1,243 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Sam Brindle Coaching design system.
+ * Ground sage-grey, white surfaces, deep green-black ink, one marigold accent.
+ * All colours are oklch equivalents of the brand hex values.
+ */
+
+@theme inline {
+  --font-sans: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-soft: var(--soft);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-marigold: var(--marigold);
+  --color-marigold-foreground: var(--marigold-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-line: var(--ink-line);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1.5rem;
+  /* #EEF0EB */
+  --background: oklch(0.951 0.007 128);
+  /* #1E2723 */
+  --foreground: oklch(0.255 0.013 163);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.255 0.013 163);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.255 0.013 163);
+  --primary: oklch(0.255 0.013 163);
+  --primary-foreground: oklch(0.985 0.003 128);
+  --secondary: oklch(1 0 0);
+  --secondary-foreground: oklch(0.255 0.013 163);
+  /* #D5DAD3 used as muted surface too */
+  --muted: oklch(0.89 0.009 135);
+  /* #3A4540 */
+  --muted-foreground: oklch(0.375 0.014 163);
+  /* #4F5A54 */
+  --soft: oklch(0.45 0.014 160);
+  --accent: oklch(0.89 0.009 135);
+  --accent-foreground: oklch(0.255 0.013 163);
+  /* #E9B23A */
+  --marigold: oklch(0.8 0.145 78);
+  --marigold-foreground: oklch(0.255 0.013 163);
+  --ink: oklch(0.255 0.013 163);
+  --ink-foreground: oklch(0.951 0.007 128);
+  --ink-muted: oklch(0.8 0.01 140);
+  --ink-line: oklch(0.36 0.013 163);
+  --destructive: oklch(0.52 0.18 30);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.89 0.009 135);
+  --input: oklch(0.86 0.01 135);
+  --ring: oklch(0.255 0.013 163);
+  --chart-1: oklch(0.8 0.145 78);
+  --chart-2: oklch(0.255 0.013 163);
+  --chart-3: oklch(0.45 0.014 160);
+  --chart-4: oklch(0.7 0.03 150);
+  --chart-5: oklch(0.89 0.009 135);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.255 0.013 163);
+  --sidebar-primary: oklch(0.255 0.013 163);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.951 0.007 128);
+  --sidebar-accent-foreground: oklch(0.255 0.013 163);
+  --sidebar-border: oklch(0.89 0.009 135);
+  --sidebar-ring: oklch(0.255 0.013 163);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+  :focus-visible {
+    outline: 3px solid var(--marigold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--marigold);
+    color: var(--ink);
+  }
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+}
+
+@utility eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+@utility pull {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility section {
+  padding-block: 4.5rem;
+  @media (min-width: 768px) {
+    padding-block: 7rem;
+  }
+}
+
+@utility placeholder-photo {
+  background-color: var(--muted);
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 14px,
+    color-mix(in oklab, var(--soft) 9%, transparent) 14px 15px
+  );
+}
+
+@utility locked-blur {
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: none;
+}
+
+@utility loop-dash {
+  animation: loop-spin 18s linear infinite;
+  transform-origin: 200px 200px;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@keyframes loop-spin {
+  to {
+    stroke-dashoffset: -240;
+  }
+}
+
+@utility journal-body {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+@utility drop-cap {
+  &::first-letter {
+    font-family: var(--font-display);
+    font-weight: 700;
+    float: left;
+    font-size: 4.6em;
+    line-height: 0.82;
+    padding: 0.06em 0.12em 0 0;
+    color: var(--ink);
+  }
+}
